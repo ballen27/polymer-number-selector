@@ -1,0 +1,57 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<link rel="import" href="./bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="./bower_components/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="number-selector">
+    <template>
+        <style>
+
+            :host {
+
+                display: flex;
+            }
+        </style>
+
+
+        <paper-icon-button icon="add-circle-outline" on-tap="increment"></paper-icon-button>
+        <div>{{value}}</div>
+        <paper-icon-button icon="remove-circle-outline" on-tap="decrement"></paper-icon-button>
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'number-selector',
+            properties:{
+                value:{
+                    value: 0,
+                    type: Number
+                },
+                maximum:{
+                    value: NaN,
+                    type: Number
+                },
+                minimum:{
+                    value: NaN,
+                    type: Number
+                }
+            },
+
+            decrement: function (){
+                if(this.value != this.minimum){
+                    this.value--;
+                    console.log("decrement");
+                }
+            },
+
+            increment: function () {
+                if(this.value != this.maximum){
+                    this.value++;
+                    console.log("increment");
+
+                }
+            }
+        });
+    </script>
+
+</dom-module>
